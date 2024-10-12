@@ -12,8 +12,7 @@ jobs:
       - image: cimg/node:14.15.0  # Primary execution image
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 20.10.14
+      - setup_remote_docker
       - run:
           name: build
           command: |
