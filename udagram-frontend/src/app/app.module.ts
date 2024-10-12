@@ -12,6 +12,8 @@ import { MenubarComponent } from './menubar/menubar.component';
 
 import { AuthModule } from './auth/auth.module';
 import { ApiService } from './api/api.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ApiService } from './api/api.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [
     ApiService,

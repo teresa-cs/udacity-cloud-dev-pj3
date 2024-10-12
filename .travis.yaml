@@ -1,0 +1,34 @@
+services:
+  - docker
+
+script:
+  # Build
+  - echo '________beginning build'
+  - docker build -t udagram-api-feed:v1 ./udagram-api-feed
+  - docker build -t udagram-api-user:v1 ./udagram-api-user
+  - docker build -t udagram-frontend:v1 ./udagram-frontend
+  - docker build -t reverseproxy:v1 ./udagram-reverseproxy
+
+  # Tagging
+  - echo '________beginning tag'
+  - docker tag udagram-api-feed:v1 teresamai/udagram-api-feed:v1
+  - docker tag udagram-api-user:v1 teresamai/udagram-api-user:v1
+  - docker tag udagram-frontend:v1 teresamai/udagram-frontend:v1
+  - docker tag reverseproxy:v1 teresamai/reverseproxy:v1
+
+  - echo 'DOCKER IMAGE LS_____'
+  - docker image ls
+
+after_success:
+  # Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis
+  #login Docker
+  - echo '_______LOGIN______'
+  #- docker_login -u=xxxx -p=xxxxx
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  #- echo 'username, password' $DOCKER_USERNAME $DOCKER_PASSWORD
+  # Pushing
+  - echo '________beginning push image'
+  - docker push teresamai/udagram-api-feed:v1
+  - docker push teresamai/udagram-api-user:v1
+  - docker push teresamai/udagram-frontend:v1
+  - docker push teresamai/reverseproxy:v1
