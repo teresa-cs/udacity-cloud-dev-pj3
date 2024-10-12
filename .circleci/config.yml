@@ -21,7 +21,7 @@ jobs:
             docker build -t udagram-api-feed:v1 ./udagram-api-feed
             docker build -t udagram-api-user:v1 ./udagram-api-user
             docker build -t udagram-frontend:v1 ./udagram-frontend
-            docker build -t reverseproxy:v1 ./reverseproxy
+            docker build -t reverseproxy:v1 ./udagram-reverseproxy
             
             # Tagging
             echo '________beginning tag'
