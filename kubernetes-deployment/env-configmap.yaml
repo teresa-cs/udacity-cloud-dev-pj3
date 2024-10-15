@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-secret
+data:
+  AWS_BUCKET: pj3bucket
+  AWS_PROFILE: default
+  AWS_REGION: us-east-1
+  JWT_SECRET: testing
+  POSTGRES_DB: postgres
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_HOST: postgres.coactovfkydk.us-east-1.rds.amazonaws.com
+  URL: http://aaad967fadf4c4b7889e6a3644131ec1-232899039.us-east-1.elb.amazonaws.com:80
